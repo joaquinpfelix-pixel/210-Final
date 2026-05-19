@@ -15,7 +15,7 @@ int main()
     if (!fin) 
     {
         cout << "ERROR: Could not openfile." << endl;
-        return 0;
+        return 1;
     }
 
     map<string, int> airport_counts;
