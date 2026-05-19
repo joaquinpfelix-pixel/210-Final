@@ -41,5 +41,32 @@ int main()
              << endl;
     }
 
+    int max_count = 0;
+
+    for(const auto& pair : airport_counts)
+    {
+        if (pair.second > max_count)
+        {
+            max_count = pair.second;
+        }
+    }
+
+    cout << endl;
+
+    cout << "Busiest airport(s) with count "
+         << max_count
+         << ":" << endl;
+         
+    for (const auto& pair : airport_counts)
+    {
+        if (pair.second == max_count)
+        {
+            cout << pair.first
+                 << " "
+                 << pair.second
+                 << endl;
+        }
+    }
+
     return 0;
 }
