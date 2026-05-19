@@ -8,13 +8,19 @@ using namespace std;
 
 const string DATA_FILE = "210-final-1-SP26.txt";
 
+void print_range(
+    const map<string, int>& airport_counts,
+    int low,
+    int high
+);
+
 int main() 
 {
     ifstream fin(DATA_FILE);
 
     if (!fin) 
     {
-        cout << "ERROR: Could not openfile." << endl;
+        cout << "ERROR: Could not open file." << endl;
         return 1;
     }
 
@@ -43,7 +49,7 @@ int main()
 
     int max_count = 0;
 
-    for(const auto& pair : airport_counts)
+    for (const auto& pair : airport_counts)
     {
         if (pair.second > max_count)
         {
@@ -68,5 +74,38 @@ int main()
         }
     }
 
+    cout << endl;
+
+    print_range(airport_counts, 1, 10);
+
+    cout << endl; 
+
+    print_range(airport_counts, 11, 100);
+
     return 0;
+}
+
+void print_range(
+    const map<string, int>& airport_counts,
+    int low,
+    int high
+)
+{
+    cout << "Airports with traffic in range ["
+         << low
+         << ", "
+         << high
+         << "]:" << endl;
+    
+    for (const auto& pair : airport_counts)
+    {
+        if (pair.second >= low &&
+            pair.second <= high)
+        {
+            cout << pair.first
+                 << " "
+                 << pair.second
+                 << endl;
+        }
+    }
 }
