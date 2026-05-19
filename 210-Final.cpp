@@ -37,7 +37,8 @@ int main()
 
     fin.close();
 
-    cout << "All airport traffic counts: " << endl;
+    cout << "All airport traffic counts: " 
+         << endl;
 
     for (const auto& pair : airport_counts)
     {
